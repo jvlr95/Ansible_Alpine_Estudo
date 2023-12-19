@@ -63,7 +63,5 @@ ssh -o "StrictHostKeyChecking no" -i ansible_user_rsa_key usuario1@172.18.1.1
 
 Certifique-se de substituir `172.18.1.1` pelo endereço IP correto do host onde o Alpine Linux com Docker foi configurado.
 
-Essas instruções pressupõem que o sistema operacional alvo é o Alpine Linux. Se você estiver usando um sistema diferente, os comandos e configurações podem precisar ser ajustados.
-```
-
+Essas instruções pressupõem que o init do seu sistema operacional é o OpenRC, mesmo init utilizado pelo Alpine Linux. Se você estiver usando um sistema diferente, os comandos e configurações podem precisar ser ajustados.
 Este é um exemplo básico e você pode personalizar conforme necessário. Certifique-se de revisar e ajustar conforme a estrutura do seu projeto.
