@@ -1,0 +1,11 @@
+ansible -i ./hosts.ini -m ping --ask-pass -e "ansible_user=jrodrigues" ansible_servers
+
+-i                  --> especifica o arquivo de inventario
+-m ping             --> especifica o módulo a ser usado, neste caso, ping
+--ask-pass          --> Solicita a senha do usuario durante a execução
+-e                  --> opcao para solicitar ansible_user
+ansible_servers     --> especifica o grupo de hosts no inventario em que as tarefas serão executadas
+
+----------------------------------------------------------------------
+
+

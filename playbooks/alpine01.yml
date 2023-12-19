@@ -1,0 +1,40 @@
+- name: ALPINE01
+  hosts: ansible-srv1
+  become: true
+  gather_facts: true
+  remote_user: jrodrigues
+  vars_files:
+    - vars/alpine01.yml
+  tasks:
+    - name: Debug VARS
+      debug:
+        msg: "{{ ex01_host }}:{{ ex01_port }}"
+    - name: Updates APK Cache
+      apk:
+        update_cache: yes
+
+    - name: Install Python and dependencies
+      apk:
+        name:
+          - python3
+          - py3-pip
+          - py3-setuptools
+          - python3-dev
+      become: true
+
+    - name: Install Python Libraries for Example 01
+      pip:
+        name:
+          - "flask==2.2.2"
+          - "Werkzeug==2.2.2"
+        executable: /usr/bin/pip3
+        extra_args: "--target=/opt/app/"
+
+    - name: Copy Python Files
+      copy:
+        src: ./code/alpine01.yml/main.py
+        dest: /opt/app/
+
+    - name: Execute Python Application
+      command: sh -c 'cd /opt/app/ && nohup /usr/bin/python3 -m flask --no-debug --app main run --host "{{ ex01_host }}" --port "{{ ex01_port }}" &'
+
