@@ -22,8 +22,7 @@ ssh-keygen -P "" -t rsa -b 4096 -C "user@server.local" -f ansible_user_rsa_key
 Clone este repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone git@github.com:jvlr95/Ansible_Alpine_Estudo.git
 ```
 
 Dê permissão de execução para o script `docker_create.sh` usando:
